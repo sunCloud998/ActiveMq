@@ -18,7 +18,7 @@
 	<aop:aspectj-autoproxy proxy-target-class="true"/>
 
 	<!-- 指定Sping组件扫描的基本包路径 -->
-	<context:component-scan base-package="com.activemq">
+	<context:component-scan base-package="com.activemq.study">
 		<!-- 这里只扫描Controller，不可重复加载Service -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>

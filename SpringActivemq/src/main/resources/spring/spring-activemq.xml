@@ -10,7 +10,7 @@
        http://www.springframework.org/schema/context
        http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.activemq" />
+    <context:component-scan base-package="com.activemq.study" />
 
     <bean id="amqConnectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
         <property name="brokerURL">
@@ -52,8 +52,8 @@
                             connection-factory="connectionFactory"
                             acknowledge="auto" >
         <!--配置对应的接收者-->
-        <!--<jms:listener destination="${activemq.queue.destination}" ref="queueReceiver" />-->
-        <!--<jms:listener destination="${activemq.queue.destination}" ref="queueReceiver2" />-->
+        <jms:listener destination="${activemq.queue.destination}" ref="queueReceiverOne" />
+        <jms:listener destination="${activemq.queue.destination}" ref="queueReceiverTwo" />
     </jms:listener-container>
 
     <!--定义Topic监听器-->
@@ -62,8 +62,8 @@
                             connection-factory="connectionFactory"
                             acknowledge="auto">
         <!--配置对应的消费者-->
-        <!--<jms:listener destination="${activemq.topic.destination}" ref="topicReceiver" />-->
-        <!--<jms:listener destination="${activemq.topic.destination}" ref="topicReceiver2" />-->
+        <jms:listener destination="${activemq.topic.destination}" ref="topicReceiverOne" />
+        <jms:listener destination="${activemq.topic.destination}" ref="topicReceiverTwo" />
     </jms:listener-container>
 
     <!-- 配置文件 MQ配置文件-->

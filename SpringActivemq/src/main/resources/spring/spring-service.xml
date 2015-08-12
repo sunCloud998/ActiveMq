@@ -11,7 +11,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd"
        default-autowire="byName">
 
-    <context:component-scan base-package="com.activemq" annotation-config="true"/>
+    <context:component-scan base-package="com.activemq.study" annotation-config="true"/>
 
     <aop:aspectj-autoproxy proxy-target-class="true"/>
 
