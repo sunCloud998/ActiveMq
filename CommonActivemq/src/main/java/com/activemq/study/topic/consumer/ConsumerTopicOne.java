@@ -18,7 +18,8 @@ public class ConsumerTopicOne {
 
     private static final Logger logger = LoggerFactory.getLogger(ConsumerTopicOne.class);
     private ActivemqUtil activemqUtil = ActivemqUtil.getInstance();
-    private static final String subject = "test.topic";
+//    private static final String subject = "test.topic";
+    private static final String subject = "topic_info";
 
     public static void main(String[] args) {
         ConsumerTopicOne consumerTopicOne = new ConsumerTopicOne();

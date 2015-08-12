@@ -1,5 +1,6 @@
 package com.activemq.study.queue.controller;
 
+import com.activemq.study.domain.User;
 import com.activemq.study.queue.producer.QueueSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +24,8 @@ public class SendPointMessageController {
 
     @ResponseBody
     @RequestMapping(value = "/queueSender")
-    public String sendMessage(@RequestParam("message")String message){
-        queueSender.send("queue_info",message);
+    public String sendMessage(User user){
+        queueSender.send("queue_info",user);
         return "suc";
     }
 

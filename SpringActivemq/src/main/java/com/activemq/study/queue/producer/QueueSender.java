@@ -1,5 +1,7 @@
 package com.activemq.study.queue.producer;
 
+import com.activemq.study.domain.User;
+import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
@@ -24,13 +26,14 @@ public class QueueSender {
     @Autowired
     @Qualifier("jmsQueueTemplate")
     private JmsTemplate jmsTemplate;
-
+    private Gson gson = new Gson();
     /**
      * 发送消息到指定队列
      * @param queueName 队列名称
-     * @param message 消息内容
+     * @param user 消息内容
      */
-    public void send(String queueName, final String message){
+    public void send(String queueName, final User user){
+        final String message = gson.toJson(user);
         jmsTemplate.send(queueName, new MessageCreator() {
             @Override
             public Message createMessage(Session session) throws JMSException {

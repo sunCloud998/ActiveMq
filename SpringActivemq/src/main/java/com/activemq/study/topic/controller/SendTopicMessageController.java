@@ -1,5 +1,6 @@
 package com.activemq.study.topic.controller;
 
+import com.activemq.study.domain.User;
 import com.activemq.study.topic.producer.TopicSender;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +24,8 @@ public class SendTopicMessageController {
 
     @ResponseBody
     @RequestMapping("/topicSender")
-    public String sendMessage(@RequestParam("message")String message){
-        topicSender.send("topic_info",message);
+    public String sendMessage(User user){
+        topicSender.send("topic_info",user);
         return "suc";
     }
 
